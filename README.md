@@ -1,2 +1,2 @@
-# omu-memo-assets
+# somu-memo-assets
 総務メモ用画像
