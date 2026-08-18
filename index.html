@@ -9,7 +9,7 @@
 
   <title>総務メモ</title>
 
-  <!-- ホーム画面アイコン -->
+  <!-- iPhone / iPad ホーム画面 -->
   <link rel="apple-touch-icon" sizes="180x180" href="./somu-memo-icon.png">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -20,55 +20,193 @@
   <meta name="theme-color" content="#f7f8fa">
   <link rel="icon" type="image/png" href="./somu-memo-icon.png">
 
-  <!-- JavaScriptが無効でもGASへ移動 -->
-  <meta http-equiv="refresh" content="0;url=https://script.google.com/a/macros/shirokumapower.com/s/AKfycbwK0wUinQg1QTqvfjMKcu83PNBF1L1e95AchdJ-2tbRAqyIy3LsgzckCawIm3mCpC61Nw/exec">
-
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     html, body {
       margin: 0;
       width: 100%;
       min-height: 100%;
       background: #f7f8fa;
+      color: #17191c;
       font-family:
         -apple-system,
         BlinkMacSystemFont,
         "Segoe UI",
         "Noto Sans JP",
+        "Hiragino Kaku Gothic ProN",
+        "Yu Gothic",
+        Meiryo,
         sans-serif;
     }
 
-    .loading {
+    body {
+      min-height: 100vh;
+    }
+
+    .wrap {
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-direction: column;
-      gap: 14px;
-      color: #17191c;
+      padding:
+        max(24px, env(safe-area-inset-top))
+        20px
+        max(24px, env(safe-area-inset-bottom));
     }
 
-    .loading img {
-      width: 88px;
-      height: 88px;
+    .card {
+      width: 100%;
+      max-width: 520px;
+      text-align: center;
+    }
+
+    .logo {
+      width: 130px;
+      height: 130px;
+      object-fit: contain;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: 32px;
+      line-height: 1.2;
+      font-weight: 800;
+    }
+
+    .lead {
+      margin: 0 auto 24px;
+      font-size: 17px;
+      line-height: 1.7;
+      color: #626970;
+    }
+
+    .guide {
+      padding: 18px;
+      border: 1px solid #e1e4e8;
+      border-radius: 18px;
+      background: #fff;
+      text-align: left;
+      box-shadow: 0 5px 20px rgba(0,0,0,.05);
+    }
+
+    .guide-title {
+      margin-bottom: 10px;
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .guide-text {
+      font-size: 16px;
+      line-height: 1.75;
+      color: #3f454b;
+    }
+
+    .open-btn {
+      display: block;
+      width: 100%;
+      min-height: 58px;
+      margin-top: 18px;
+      padding: 16px 18px;
+      border-radius: 14px;
+      background: #2468e8;
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .launching {
+      display: none;
+      min-height: 100vh;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 12px;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .launching img {
+      width: 100px;
+      height: 100px;
       object-fit: contain;
     }
 
-    .loading div {
-      font-size: 18px;
-      font-weight: 700;
+    .launching-title {
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    @media (max-width: 480px) {
+      .logo {
+        width: 112px;
+        height: 112px;
+      }
+
+      h1 {
+        font-size: 29px;
+      }
+
+      .lead {
+        font-size: 16px;
+      }
     }
   </style>
-
-  <script>
-    // GitHub Pagesを表示せず、総務メモへ即時移動
-    window.location.replace('https://script.google.com/a/macros/shirokumapower.com/s/AKfycbwK0wUinQg1QTqvfjMKcu83PNBF1L1e95AchdJ-2tbRAqyIy3LsgzckCawIm3mCpC61Nw/exec');
-  </script>
 </head>
 
 <body>
-  <div class="loading">
+
+  <!-- Safariで通常表示している間はここに留まり、ホーム画面に追加できる -->
+  <main id="installPage" class="wrap">
+    <div class="card">
+      <img class="logo" src="./somu-memo-icon.png" alt="総務メモ">
+      <h1>総務メモ</h1>
+      <p class="lead">
+        ホーム画面に追加すると、ぱわーくんのアイコンから総務メモを開けます。
+      </p>
+
+      <div class="guide">
+        <div class="guide-title">iPhoneで使う場合</div>
+        <div class="guide-text">
+          Safariの共有ボタンから「ホーム画面に追加」を選んでください。<br>
+          追加後は、ホーム画面の「総務メモ」をタップするだけで総務メモを開きます。
+        </div>
+
+        <a class="open-btn" href="https://script.google.com/a/macros/shirokumapower.com/s/AKfycbwK0wUinQg1QTqvfjMKcu83PNBF1L1e95AchdJ-2tbRAqyIy3LsgzckCawIm3mCpC61Nw/exec">
+          今だけ総務メモを開く
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- ホーム画面から起動した時だけ表示 -->
+  <div id="launching" class="launching">
     <img src="./somu-memo-icon.png" alt="総務メモ">
-    <div>総務メモを開いています…</div>
+    <div class="launching-title">総務メモを開いています…</div>
   </div>
+
+  <script>
+    function isStandalone() {
+      return (
+        window.navigator.standalone === true ||
+        window.matchMedia('(display-mode: standalone)').matches
+      );
+    }
+
+    if (isStandalone()) {
+      document.getElementById('installPage').style.display = 'none';
+      document.getElementById('launching').style.display = 'flex';
+
+      // ホーム画面から起動した時だけGASへ直行
+      setTimeout(() => {
+        window.location.replace("https://script.google.com/a/macros/shirokumapower.com/s/AKfycbwK0wUinQg1QTqvfjMKcu83PNBF1L1e95AchdJ-2tbRAqyIy3LsgzckCawIm3mCpC61Nw/exec");
+      }, 80);
+    }
+  </script>
+
 </body>
 </html>
