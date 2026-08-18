@@ -1,0 +1,17 @@
+{
+  "name": "総務メモ",
+  "short_name": "総務メモ",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f7f8fa",
+  "theme_color": "#f7f8fa",
+  "icons": [
+    {
+      "src": "./somu-memo-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
